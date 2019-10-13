@@ -1,0 +1,10 @@
+{
+  "customer": {
+    "id": "A29071",
+    "name": "Julia Simpson"
+  },
+  "energyUse": {
+    "currentYear": 573,
+    "priorYear": 791
+  }
+}

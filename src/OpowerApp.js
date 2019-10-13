@@ -7,9 +7,12 @@ import ToolBar from "@material-ui/core/Toolbar"
 import Grid from "@material-ui/core/Grid"
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import Viz from "./Viz.js"
+import Viz from "./Viz"
+import data from "./data.json"
 
 function OpowerApp() {
+    const mydata = data;
+    console.log(mydata)
     return (
         <Paper style={{
             padding: 0,
