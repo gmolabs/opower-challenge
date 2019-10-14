@@ -9,10 +9,14 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import Viz from "./Viz"
 import data from "./data.json"
+import useLocalStorageState from "./hooks/useLocalStorageState"
 
 function OpowerApp() {
     const mydata = data;
     console.log(mydata)
+
+    const [vizType, setVizType] = useLocalStorageState("vizType", "trees")
+
     return (
         <Paper style={{
             padding: 0,
@@ -32,7 +36,7 @@ function OpowerApp() {
                     <Paper>
                         <Viz />
                         <ToggleButtonGroup
-                            value={"cars"}
+                            value={vizType}
                             exclusive
                             // onChange={() => { console.log(this.value) }}
                             aria-label="viz type">
