@@ -60,9 +60,7 @@ function OpowerApp() {
             <Grid container justify="center" spacing={3} style={{ marginTop: "1rem" }} >
                 <Grid item xs={11} md={11} lg={5}>
                     <Paper style={{ textAlign: "center" }}>
-                        <div style={{ padding: 20 }}>
-                            {[...Array(n)].map((e, i) => <img src="../car-fill.svg" style={{ width: "25%", padding: 10 }} key={i} />)}
-                        </div>
+                        <Viz />
                         <div style={{ display: "flex", justifyContent: "center" }}>
                             <ToggleButtonGroup
                                 style={{ margin: 20 }}
