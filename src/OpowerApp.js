@@ -19,6 +19,7 @@ import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import { Container } from "@material-ui/core"
+import VizToggle from "./VizToggle"
 const sampleData = [
     {
         name: 'Last year', kwh: 791
@@ -61,21 +62,7 @@ function OpowerApp() {
                 <Grid item xs={11} md={11} lg={5}>
                     <Paper style={{ textAlign: "center" }}>
                         <Viz />
-                        <div style={{ display: "flex", justifyContent: "center" }}>
-                            <ToggleButtonGroup
-                                style={{ margin: 20 }}
-                                value={"cars"}
-                                exclusive
-                                // onChange={() => { console.log(this.value) }}
-                                aria-label="viz type">
-                                <ToggleButton value="cars" aria-label="cars">
-                                    <DriveEta /><Typography>Cars</Typography>
-                                </ToggleButton>
-                                <ToggleButton value="trees" aria-label="trees">
-                                    <NaturePeople /><Typography>Trees</Typography>
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
+                        <VizToggle />
                     </Paper>
                 </Grid>
                 <Grid item xs={11} md={11} lg={6}>
