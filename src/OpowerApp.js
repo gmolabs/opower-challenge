@@ -8,16 +8,8 @@ import Navbar from "./Navbar"
 import VizToggle from "./VizToggle"
 import Description from "./SavingsDescription"
 import SavingsGraph from "./SavingsGraph"
-const sampleData = [
-    {
-        name: 'Last year', kwh: 791
-    },
-    {
-        name: 'This year', kwh: 573
-    }
-]
 
-
+/*
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -28,11 +20,10 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.text.secondary,
     },
 }));
-
+*/
 
 function OpowerApp() {
-    const [mydata, setMyData] = useState(data);
-    console.log(mydata)
+    const [myData, setMyData] = useState(data);
     // const { vizMode, setVizMode } = useContext(VizContext)
     const n = 6; // Or something else
 
@@ -50,14 +41,14 @@ function OpowerApp() {
             <Grid container justify="center" spacing={3} style={{ marginTop: "1rem" }} >
                 <Grid item xs={11} md={11} lg={5}>
                     <Paper style={{ textAlign: "center" }}>
-                        <Viz />
+                        <Viz data={myData} />
                         <VizToggle />
                     </Paper>
                 </Grid>
                 <Grid item xs={11} md={11} lg={6}>
                     <Paper style={{ padding: 30 }}>
-                        <Description />
-                        <SavingsGraph data={sampleData} />
+                        <Description data={myData} />
+                        <SavingsGraph data={myData} />
                     </Paper>
                 </Grid>
             </Grid>
