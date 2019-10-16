@@ -13,6 +13,7 @@ import useLocalStorageState from "./hooks/useLocalStorageState"
 import { VizContext } from "./contexts/VizContext"
 import { makeStyles } from '@material-ui/core/styles';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import Navbar from "./Navbar"
 
 import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
@@ -55,11 +56,7 @@ function OpowerApp() {
         }}
             elevation={0}
         >
-            <AppBar color="primary" position="static" style={{ height: "64px" }}>
-                <ToolBar>
-                    <Typography color="inherit">Your Energy Savings</Typography>
-                </ToolBar>
-            </AppBar>
+            <Navbar />
             <Grid container justify="center" spacing={3} style={{ marginTop: "1rem" }} >
                 <Grid item xs={11} md={11} lg={5}>
                     <Paper style={{ textAlign: "center" }}>
@@ -83,7 +80,7 @@ function OpowerApp() {
                         </div>
                     </Paper>
                 </Grid>
-                <Grid item spacing={3} xs={11} md={11} lg={6}>
+                <Grid item xs={11} md={11} lg={6}>
                     <Paper>
                         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: 40, paddingTop: 20 }}>
                             <div style={{ display: "flex", flexDirection: "row", }}>
