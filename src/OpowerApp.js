@@ -1,27 +1,13 @@
 import React, { useContext, useState, PureComponent } from "react"
-import Typography from "@material-ui/core/Typography"
-import { DriveEta, NaturePeople } from "@material-ui/icons"
 import Paper from "@material-ui/core/Paper"
-import AppBar from "@material-ui/core/AppBar"
-import ToolBar from "@material-ui/core/Toolbar"
 import Grid from "@material-ui/core/Grid"
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import Viz from "./Viz"
 import data from "./data.json"
-import useLocalStorageState from "./hooks/useLocalStorageState"
-import { VizContext } from "./contexts/VizContext"
 import { makeStyles } from '@material-ui/core/styles';
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import Navbar from "./Navbar"
-import SavingsDescription from "./SavingsDescription"
-
-import {
-    BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-} from 'recharts';
-import { Container } from "@material-ui/core"
 import VizToggle from "./VizToggle"
 import Description from "./SavingsDescription"
+import SavingsGraph from "./SavingsGraph"
 const sampleData = [
     {
         name: 'Last year', kwh: 791
@@ -71,27 +57,7 @@ function OpowerApp() {
                 <Grid item xs={11} md={11} lg={6}>
                     <Paper style={{ padding: 30 }}>
                         <Description />
-                        <Grid item style={{ padding: 20 }}>
-                            <BarChart
-                                width={300}
-                                height={300}
-                                data={sampleData}
-                                margin={{
-                                    top: 0, right: 30, left: 20, bottom: 5,
-                                }}
-                                style={{
-                                    marginLeft: "auto",
-                                    marginRight: "auto"
-                                }}
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip />
-                                <Legend />
-                                <Bar dataKey="kwh" fill="#8884d8" />
-                            </BarChart>
-                        </Grid>
+                        <SavingsGraph data={sampleData} />
                     </Paper>
                 </Grid>
             </Grid>
