@@ -14,12 +14,14 @@ import { VizContext } from "./contexts/VizContext"
 import { makeStyles } from '@material-ui/core/styles';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import Navbar from "./Navbar"
+import SavingsDescription from "./SavingsDescription"
 
 import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import { Container } from "@material-ui/core"
 import VizToggle from "./VizToggle"
+import Description from "./SavingsDescription"
 const sampleData = [
     {
         name: 'Last year', kwh: 791
@@ -53,6 +55,7 @@ function OpowerApp() {
             padding: 0,
             margin: 0,
             height: "100vh",
+            width: "100vw",
             backgroundColor: "#fafafa"
         }}
             elevation={0}
@@ -66,32 +69,19 @@ function OpowerApp() {
                     </Paper>
                 </Grid>
                 <Grid item xs={11} md={11} lg={6}>
-                    <Paper>
-                        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: 40, paddingTop: 20 }}>
-                            <div style={{ display: "flex", flexDirection: "row", }}>
-                                <ThumbUpIcon style={{
-                                    paddingRight: 15,
-                                    paddingTop: 2
-                                }} />
-                                <Typography variant="h5" gutterBottom>
-                                    {`Last month, you saved enough energy to take six cars off the road`}
-                                </Typography>
-                            </div>
-                            <Typography variant="body1" style={{ paddingLeft: 40 }}> {`
-                            Great Job! You used 573 kwh last month, 
-                            compared to 791 kwh in the same month last year.
-                            The resulting saving is enough to offset the 
-                            energy consumption of six average-size cars 
-                            for one month`}
-                            </Typography>
-                        </div>
-                        <Grid item container justify="center" style={{ padding: 20 }}>
+                    <Paper style={{ padding: 30 }}>
+                        <Description />
+                        <Grid item style={{ padding: 20 }}>
                             <BarChart
                                 width={300}
                                 height={300}
                                 data={sampleData}
                                 margin={{
                                     top: 0, right: 30, left: 20, bottom: 5,
+                                }}
+                                style={{
+                                    marginLeft: "auto",
+                                    marginRight: "auto"
                                 }}
                             >
                                 <CartesianGrid strokeDasharray="3 3" />
