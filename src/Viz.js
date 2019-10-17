@@ -8,7 +8,6 @@ import TreeFill from "./img/tree-fill.svg"
 import TreeOutline from "./img/tree-outline.svg"
 
 function Viz({ data, vizMode }) {
-    console.log(CarFill)
     // const { vizMode, setVizMode } = useContext(VizContext)
     const curYear = data.energyUse.currentYear
     const lastYear = data.energyUse.priorYear
@@ -17,7 +16,6 @@ function Viz({ data, vizMode }) {
     const treeFactor = 210
     const n = (vizMode === "cars" ? Math.round(savings / carFactor) : Math.round(savings / treeFactor))
 
-    console.log(vizMode)
     return (
         <div style={{ padding: 20 }}>
             {[...Array(Math.abs(n))].map((e, i) => <img src={vizMode == "cars" ? CarFill : TreeFill} style={{ width: "20%", padding: 10 }} key={i} />)}
