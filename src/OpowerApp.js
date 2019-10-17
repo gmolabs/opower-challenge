@@ -46,7 +46,7 @@ function OpowerApp() {
             elevation={0}
         >
             <Navbar />
-            <Grid container justify="center" spacing={3} style={{ marginTop: "1rem" }} >
+            <Grid container justify="center" spacing={3} style={{ marginTop: "1rem", width: "100vw" }} >
                 <Grid item xs={11} md={11} lg={5}>
                     <Paper style={{ textAlign: "center" }}>
                         <Viz data={myData} vizMode={vizMode} />
