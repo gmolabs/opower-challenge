@@ -15,8 +15,8 @@ function Viz({ data, vizMode }) {
     console.log(vizMode)
     return (
         <div style={{ padding: 20 }}>
-            {[...Array(Math.abs(n))].map((e, i) => <img src={vizMode == "cars" ? "../car-fill.svg" : "../tree-fill.svg"} style={{ width: "20%", padding: 10 }} key={i} />)}
-            {n == 0 && <img src={vizMode == "cars" ? "../car-outline.svg" : "../tree-outline.svg"} style={{ width: "20%", padding: 10 }} />}
+            {[...Array(Math.abs(n))].map((e, i) => <img src={vizMode == "cars" ? "./img/car-fill.svg" : "./img/tree-fill.svg"} style={{ width: "20%", padding: 10 }} key={i} />)}
+            {n == 0 && <img src={vizMode == "cars" ? "./img/car-outline.svg" : "./img/tree-outline.svg"} style={{ width: "20%", padding: 10 }} />}
         </div>
     )
 }
