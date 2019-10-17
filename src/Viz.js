@@ -7,10 +7,10 @@ import CarOutline from "./img/car-outline.svg"
 import TreeFill from "./img/tree-fill.svg"
 import TreeOutline from "./img/tree-outline.svg"
 
-function Viz({ data, vizMode }) {
+function Viz({ currentYear, priorYear, vizMode }) {
     // const { vizMode, setVizMode } = useContext(VizContext)
-    const curYear = data.energyUse.currentYear
-    const lastYear = data.energyUse.priorYear
+    const curYear = currentYear
+    const lastYear = priorYear
     const savings = lastYear - curYear
     const carFactor = 35
     const treeFactor = 210

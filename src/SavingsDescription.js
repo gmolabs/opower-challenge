@@ -5,10 +5,10 @@ import Warning from "@material-ui/icons/Warning"
 import CheckCircle from "@material-ui/icons/CheckCircle"
 import Typography from "@material-ui/core/Typography"
 
-function SavingsDescription({ data, vizMode }) {
+function SavingsDescription({ priorYear, currentYear, vizMode }) {
 
-    const curYear = data.energyUse.currentYear
-    const lastYear = data.energyUse.priorYear
+    const curYear = currentYear
+    const lastYear = priorYear
     const savings = lastYear - curYear
     const carFactor = 35
     const treeFactor = 210

@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-function Navbar({ data, setMyData }) {
+function Navbar({ priorYear, currentYear, setPriorYear, setCurrentYear }) {
     const classes = useStyles()
     const [anchorEl, setAnchorEl] = React.useState(null)
     const handleMenu = event => {
@@ -41,31 +41,10 @@ function Navbar({ data, setMyData }) {
     }
     const open = Boolean(anchorEl);
     const handlePriorYearSliderChange = (e, value) => {
-        console.log(value)
-        let newData = data;
-        newData.energyUse.priorYear = value;
-        setMyData(newData)
+        setPriorYear(value)
     }
-
-    // {
-    //     "customer": {
-    //       "id": "A29071",
-    //       "name": "Julia Simpson"
-    //     },
-    //     "energyUse": {
-    //       "currentYear": 573,
-    //       "priorYear": 791
-    //     }
-    //   }
-
-
-
     const handleThisYearSliderChange = (e, value) => {
-        console.log(value)
-
-        let newData = data;
-        newData.energyUse.currentYear = value;
-        setMyData(newData)
+        setCurrentYear(value)
     }
 
 
@@ -102,7 +81,7 @@ function Navbar({ data, setMyData }) {
                             className={classes.menuSlider}
                             max={2000}
                             onChangeCommitted={handlePriorYearSliderChange}
-                            defaultValue={data.energyUse.priorYear}
+                            defaultValue={priorYear}
                         />
                     </MenuItem>
                     <MenuItem className={classes.menuItem} ><Typography className={classes.menuLabel}>This Year</Typography>
@@ -110,7 +89,7 @@ function Navbar({ data, setMyData }) {
                             className={classes.menuSlider}
                             max={2000}
                             onChangeCommitted={handleThisYearSliderChange}
-                            defaultValue={data.energyUse.currentYear}
+                            defaultValue={currentYear}
                         />
                     </MenuItem>
                 </Menu>

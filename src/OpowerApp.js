@@ -6,7 +6,7 @@ import data from "./data.json"
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from "./Navbar"
 import VizToggle from "./VizToggle"
-import Description from "./SavingsDescription"
+import SavingsDescription from "./SavingsDescription"
 import SavingsGraph from "./SavingsGraph"
 
 /*
@@ -36,8 +36,8 @@ const useStyles = makeStyles(theme => ({
 function OpowerApp() {
     const [myData, setMyData] = useState(data);
     const [vizMode, setVizMode] = useState("cars")
-    // const [priorYear, setPriorYear] = useState(data.energyUse.priorYear)
-    // const [currentYear, setCurrentYear] = useState(data.energyUse.priorYear)
+    const [priorYear, setPriorYear] = useState(data.energyUse.priorYear)
+    const [currentYear, setCurrentYear] = useState(data.energyUse.currentYear)
 
     return (
         <Paper style={{
@@ -49,18 +49,18 @@ function OpowerApp() {
         }}
             elevation={0}
         >
-            <Navbar data={myData} setMyData={setMyData} />
+            <Navbar priorYear={priorYear} currentYear={currentYear} setPriorYear={setPriorYear} setCurrentYear={setCurrentYear} />
             <Grid container justify="center" spacing={3} style={{ marginTop: "1rem", width: "100vw" }} >
                 <Grid item xs={11} md={11} lg={5}>
                     <Paper style={{ textAlign: "center" }}>
-                        <Viz data={myData} vizMode={vizMode} />
+                        <Viz priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
                         <VizToggle vizMode={vizMode} setVizMode={setVizMode} />
                     </Paper>
                 </Grid>
                 <Grid item xs={11} md={11} lg={6}>
                     <Paper style={{ padding: 30 }}>
-                        <Description data={myData} vizMode={vizMode} />
-                        <SavingsGraph data={myData} vizMode={vizMode} />
+                        <SavingsDescription priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
+                        <SavingsGraph priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
                     </Paper>
                 </Grid>
             </Grid>

@@ -3,13 +3,13 @@ import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts'
 
-function SavingsGraph(props) {
+function SavingsGraph({ priorYear, currentYear }) {
     const graphData = [
         {
-            name: 'Last year', kwh: props.data.energyUse.priorYear
+            name: 'Last year', kwh: priorYear
         },
         {
-            name: 'This year', kwh: props.data.energyUse.currentYear
+            name: 'This year', kwh: currentYear
         }
     ]
 
