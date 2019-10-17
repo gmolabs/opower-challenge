@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/opower-challenge/precache-manifest.17cea26c9efeb03befcd74d0a478c7c0.js"
+  "/opower-challenge/precache-manifest.4d541797534590228252f0b89144462a.js"
 );
 
 self.addEventListener('message', (event) => {
