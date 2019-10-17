@@ -24,8 +24,16 @@ const useStyles = makeStyles(theme => ({
 
 function OpowerApp() {
     const [myData, setMyData] = useState(data);
+    const [vizMode, setVizMode] = useState("cars")
     // const { vizMode, setVizMode } = useContext(VizContext)
-    const n = 6; // Or something else
+
+    const curYear = myData.energyUse.currentYear
+    const lastYear = myData.energyUse.priorYear
+    const savings = lastYear - curYear
+    const vizType = "cars"
+    const carFactor = 35
+    const treeFactor = 210
+    const n = (vizType === "cars" ? Math.floor(savings / carFactor) : Math.floor(savings / treeFactor))
 
     return (
         <Paper style={{
@@ -41,14 +49,14 @@ function OpowerApp() {
             <Grid container justify="center" spacing={3} style={{ marginTop: "1rem" }} >
                 <Grid item xs={11} md={11} lg={5}>
                     <Paper style={{ textAlign: "center" }}>
-                        <Viz data={myData} />
-                        <VizToggle />
+                        <Viz data={myData} vizMode={vizMode} />
+                        <VizToggle vizMode={vizMode} setVizMode={setVizMode} />
                     </Paper>
                 </Grid>
                 <Grid item xs={11} md={11} lg={6}>
                     <Paper style={{ padding: 30 }}>
-                        <Description data={myData} />
-                        <SavingsGraph data={myData} />
+                        <Description data={myData} vizMode={vizMode} />
+                        <SavingsGraph data={myData} vizMode={vizMode} />
                     </Paper>
                 </Grid>
             </Grid>
