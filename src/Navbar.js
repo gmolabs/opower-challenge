@@ -7,7 +7,9 @@ import Settings from "@material-ui/icons/Settings"
 import { makeStyles } from "@material-ui/core/styles"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
-import Slider from '@material-ui/core/Slider';
+import Slider from "@material-ui/core/Slider"
+import Tooltip from "@material-ui/core/Tooltip"
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -20,15 +22,47 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     menuItem: {
-        width: 400
+        width: 300
     },
     menuLabel: {
         width: 120
     },
     menuSlider: {
-        marginLeft: 20
+        marginLeft: 20,
+        marginRight: 25
     }
 }))
+
+function ValueLabelComponent(props) {
+    const { children, open, value } = props;
+
+    const popperRef = React.useRef(null);
+    React.useEffect(() => {
+        if (popperRef.current) {
+            popperRef.current.update();
+        }
+    });
+
+    return (
+        <Tooltip
+            PopperProps={{
+                popperRef,
+            }}
+            open={open}
+            enterTouchDelay={0}
+            placement="top"
+            title={value}
+        >
+            {children}
+        </Tooltip>
+    );
+}
+
+ValueLabelComponent.propTypes = {
+    children: PropTypes.element.isRequired,
+    open: PropTypes.bool.isRequired,
+    value: PropTypes.number.isRequired,
+};
 
 function Navbar({ priorYear, currentYear, setPriorYear, setCurrentYear }) {
     const classes = useStyles()
@@ -78,6 +112,9 @@ function Navbar({ priorYear, currentYear, setPriorYear, setCurrentYear }) {
                 >
                     <MenuItem className={classes.menuItem} ><Typography className={classes.menuLabel}>Prior Year</Typography>
                         <Slider
+                            ValueLabelComponent={ValueLabelComponent}
+                            aria-label="custom thumb label"
+                            defaultValue={priorYear}
                             className={classes.menuSlider}
                             max={2000}
                             onChangeCommitted={handlePriorYearSliderChange}
@@ -86,6 +123,9 @@ function Navbar({ priorYear, currentYear, setPriorYear, setCurrentYear }) {
                     </MenuItem>
                     <MenuItem className={classes.menuItem} ><Typography className={classes.menuLabel}>This Year</Typography>
                         <Slider
+                            ValueLabelComponent={ValueLabelComponent}
+                            aria-label="custom thumb label"
+                            defaultValue={currentYear}
                             className={classes.menuSlider}
                             max={2000}
                             onChangeCommitted={handleThisYearSliderChange}

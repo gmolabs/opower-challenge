@@ -28,7 +28,7 @@ function SavingsGraph({ priorYear, currentYear }) {
         >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis />
+            <YAxis domain={[0, 2000]} />
             <Tooltip />
             <Legend />
             <Bar dataKey="kwh" fill="#8884d8" />

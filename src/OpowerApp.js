@@ -51,18 +51,19 @@ function OpowerApp() {
         >
             <Navbar priorYear={priorYear} currentYear={currentYear} setPriorYear={setPriorYear} setCurrentYear={setCurrentYear} />
             <Grid container justify="center" spacing={3} style={{ marginTop: "1rem", width: "100vw" }} >
-                <Grid item xs={11} md={11} lg={5}>
-                    <Paper style={{ textAlign: "center" }}>
-                        <Viz priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
-                        <VizToggle vizMode={vizMode} setVizMode={setVizMode} />
-                    </Paper>
-                </Grid>
                 <Grid item xs={11} md={11} lg={6}>
-                    <Paper style={{ padding: 30 }}>
+                    <Paper style={{ paddingTop: 20, paddingBottom: 20 }}>
                         <SavingsDescription priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
                         <SavingsGraph priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
                     </Paper>
                 </Grid>
+                <Grid item xs={11} md={11} lg={5}>
+                    <Paper style={{ textAlign: "center" }}>
+                        <VizToggle vizMode={vizMode} setVizMode={setVizMode} />
+                        <Viz priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
+                    </Paper>
+                </Grid>
+
             </Grid>
 
         </Paper >
