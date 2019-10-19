@@ -8,6 +8,7 @@ import Navbar from "./Navbar"
 import VizToggle from "./VizToggle"
 import SavingsDescription from "./SavingsDescription"
 import SavingsGraph from "./SavingsGraph"
+import useLocalStorageState from "./hooks/useLocalStorageState"
 
 /*
 const useStyles = makeStyles(theme => ({
@@ -34,10 +35,10 @@ const useStyles = makeStyles(theme => ({
 //   }
 
 function OpowerApp() {
-    const [myData, setMyData] = useState(data);
-    const [vizMode, setVizMode] = useState("cars")
-    const [priorYear, setPriorYear] = useState(data.energyUse.priorYear)
-    const [currentYear, setCurrentYear] = useState(data.energyUse.currentYear)
+    // const [myData, setMyData] = useState(data);
+    const [vizMode, setVizMode] = useLocalStorageState("vizType", "cars")
+    const [priorYear, setPriorYear] = useLocalStorageState("priorYear", data.energyUse.priorYear)
+    const [currentYear, setCurrentYear] = useLocalStorageState("currentYear", data.energyUse.currentYear)
 
     return (
         <Paper style={{

@@ -21,12 +21,12 @@ function Viz({ currentYear, priorYear, vizMode }) {
     return (
         <div style={{ padding: 20 }}>
             {[...Array(Math.abs(n))].map((e, i) =>
-                <Zoom in={1} style={{ transitionDelay: `${(i + 1) * 100}ms` }} >
+                <Zoom in={true} key={i} style={{ transitionDelay: `${(i + 1) * 100}ms` }} >
                     <img src={vizMode == "cars" ? CarFill : TreeFill} style={{ width: "20%", padding: 10 }} key={i} />
                 </Zoom>
             )}
             {n == 0 &&
-                <Zoom in={1} style={{ transitionDelay: "100ms" }} >
+                <Zoom in={true} style={{ transitionDelay: "100ms" }} >
                     <img src={vizMode == "cars" ? CarOutline : TreeOutline} style={{ width: "20%", padding: 10 }} />
                 </Zoom>
             }
