@@ -19,6 +19,7 @@ Implementation of wireframe displaying power usage information to a customer. De
 - Functional React Components using Hooks
 - GUI to change data dynamically
 - Transition animations
+- Custom hook to use local storage to save state whne page refreshes
 
 ## Design Decisions
 
