@@ -37,11 +37,11 @@ function SavingsDescription({ priorYear, currentYear, vizMode }) {
                 }
                 <Typography variant="h5" gutterBottom>
                     {
-                        ((nItems < 0 && vizMode === "cars") && `Compared to this month last year, you used ${Math.abs(nItems)} more ${n === -1 ? "car's" : "cars'"} worth of energy.`)
-                        || ((nItems < 0 && vizMode === "trees") && `Compared to this month last year, you used the carbon equivalent of ${Math.abs(nItems)} ${n === -1 ? "tree's" : "trees'"} more energy.`)
+                        ((nItems < 0 && vizMode === "cars") && `Compared to this month last year, you used ${Math.abs(nItems)} more ${nItems === -1 ? "car's" : "cars'"} worth of energy.`)
+                        || ((nItems < 0 && vizMode === "trees") && `Compared to this month last year, you used the carbon equivalent of ${Math.abs(nItems)} ${nItems === -1 ? "tree's" : "trees'"} more energy.`)
                         || ((nItems === 0) && `You used the same amount of energy as this month last year.`)
                         || ((nItems > 0 && vizMode === "cars") && `Last month, you saved enough energy to take ${nItems} car${nItems === 1 ? "" : "s"} off the road!`)
-                        || ((nItems > 0 && vizMode === "trees") && `Last month, you saved the energy equivalent of ${nItems} tree${nItems === 1 ? "'s" : "s"} worth of carbon!`)
+                        || ((nItems > 0 && vizMode === "trees") && `Last month, you saved the energy equivalent of ${nItems} tree${nItems === 1 ? "'s" : "s'"} worth of carbon!`)
                     }
                 </Typography>
             </div>
