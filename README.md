@@ -22,6 +22,6 @@ Implementation of wireframe displaying power usage information to a customer. De
 
 ## Design Decisions
 
--Switched the layout such that the explanatory text comes first. On mobile, we want this context before being presented with the icons of the cars.
--Moved toggle above the car/tree icons to reduce jitter when changing icon.
--Just show the number of cars/trees saved, rather than outlines in a "pack" of cars. (Savings are absolute values, not a percentage of traffic taken of road).
+- Switched the layout such that the explanatory text comes first. On mobile, we want this context before being presented with the icons of the cars.
+- Moved toggle above the car/tree icons to reduce jitter when changing icon.
+- Just show the number of cars/trees saved, rather than outlines in a "pack" of cars. (Savings are absolute values, not a percentage of traffic taken of road).
