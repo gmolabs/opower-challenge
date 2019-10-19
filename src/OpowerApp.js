@@ -65,7 +65,6 @@ function OpowerApp() {
                 </Grid>
 
             </Grid>
-
         </Paper >
     )
 }
