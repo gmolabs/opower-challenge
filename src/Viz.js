@@ -6,6 +6,7 @@ import CarFill from "./img/car-fill.svg"
 import CarOutline from "./img/car-outline.svg"
 import TreeFill from "./img/tree-fill.svg"
 import TreeOutline from "./img/tree-outline.svg"
+import uuid from "uuid"
 
 import Zoom from '@material-ui/core/Zoom';
 
@@ -21,8 +22,16 @@ function Viz({ currentYear, priorYear, vizMode }) {
     return (
         <div style={{ padding: 20 }}>
             {[...Array(Math.abs(n))].map((e, i) =>
-                <Zoom in={true} key={i} style={{ transitionDelay: `${(i + 1) * 100}ms` }} >
-                    <img src={vizMode == "cars" ? CarFill : TreeFill} style={{ width: "20%", padding: 10 }} key={i} />
+                <Zoom in={true} key={uuid.v4()} style={{ transitionDelay: `${(i + 1) * 100}ms` }} >
+                    <img
+                        src={vizMode == "cars" ? CarFill : TreeFill}
+                        style={{
+                            width: "20%",
+                            padding: 10,
+                            // filter: "invert(0.5) sepia(1) saturate(1) hue-rotate(" + Math.floor(Math.random() * 360) + "deg)"
+                        }}
+                        key={i}
+                    />
                 </Zoom>
             )}
             {n == 0 &&
