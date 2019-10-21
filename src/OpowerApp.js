@@ -17,7 +17,7 @@ function OpowerApp() {
 
     const useStyles = makeStyles(theme => ({
         root: {
-            flexGrow: 1,
+            flexGrow: 1
         },
         bgPaper: {
             padding: 0,

@@ -7,30 +7,34 @@ import Typography from "@material-ui/core/Typography"
 import uuid from "uuid"
 import Zoom from '@material-ui/core/Zoom';
 import getNItems from "./utils/nItems"
-function SavingsDescription({ priorYear, currentYear, vizMode }) {
+import { makeStyles } from '@material-ui/core/styles';
 
+function SavingsDescription({ priorYear, currentYear, vizMode }) {
     const nItems = getNItems(currentYear, priorYear, vizMode)
+    const useStyles = makeStyles(theme => ({
+        descriptionIcon: {
+            paddingRight: 15,
+            paddingTop: 2
+        },
+        descriptionBodyText: {
+            paddingLeft: 40,
+            paddingTop: 10,
+            paddingBottom: 20
+        }
+    }))
+    const classes = useStyles()
+
     return (
         <Container>
             <div style={{ display: "flex", flexDirection: "row", }}>
                 <Zoom in={true} key={uuid.v4()}>
-
                     {
                         nItems < 0 &&
-                        <Warning style={{
-                            paddingRight: 15,
-                            paddingTop: 2
-                        }} />
+                        <Warning className={classes.descriptionIcon} />
                         || nItems == 0 &&
-                        <CheckCircle style={{
-                            paddingRight: 15,
-                            paddingTop: 2
-                        }} />
+                        <CheckCircle className={classes.descriptionIcon} />
                         || nItems > 0 &&
-                        <ThumbUp style={{
-                            paddingRight: 15,
-                            paddingTop: 2
-                        }} />
+                        <ThumbUp className={classes.descriptionIcon} />
                     }
                 </Zoom>
                 <Typography variant="h5" gutterBottom>
@@ -43,7 +47,7 @@ function SavingsDescription({ priorYear, currentYear, vizMode }) {
                     }
                 </Typography>
             </div>
-            <Typography variant="body1" style={{ paddingLeft: 40, paddingTop: 10, paddingBottom: 20 }}>
+            <Typography variant="body1" className={classes.descriptionBodyText}>
                 {
 
                     (nItems < 0 && vizMode == "cars") &&

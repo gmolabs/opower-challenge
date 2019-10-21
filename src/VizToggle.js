@@ -4,6 +4,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton"
 import DriveEta from "@material-ui/icons/DriveEta"
 import NaturePeople from "@material-ui/icons/NaturePeople"
 import Typography from "@material-ui/core/Typography"
+import { makeStyles } from "@material-ui/core/styles"
 
 function VizToggle({ vizMode, setVizMode }) {
     const handleVizMode = (event, newVizMode) => {
@@ -11,10 +12,15 @@ function VizToggle({ vizMode, setVizMode }) {
             setVizMode(newVizMode)
         }
     }
-
+    const useStyles = makeStyles(theme => ({
+        toggleButtonGroup: {
+            margin: 20
+        }
+    }))
+    const classes = useStyles()
     return (
         <ToggleButtonGroup
-            style={{ margin: 20 }}
+            className={classes.toggleButtonGroup}
             value={vizMode}
             exclusive
             onChange={handleVizMode}

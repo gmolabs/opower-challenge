@@ -11,13 +11,16 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         flexGrow: 1,
+    },
+    appBar: {
+        height: 64
     }
 }))
 
 function Navbar({ priorYear, currentYear, setPriorYear, setCurrentYear }) {
     const classes = useStyles()
     return (
-        <AppBar color="primary" position="static" style={{ height: "64px" }}>
+        <AppBar color="primary" position="static" className={classes.appBar}>
             <ToolBar>
                 <Typography color="inherit" className={classes.title}>Your Energy Savings</Typography>
                 <SettingsMenu priorYear={priorYear} currentYear={currentYear} setPriorYear={setPriorYear} setCurrentYear={setCurrentYear} />
