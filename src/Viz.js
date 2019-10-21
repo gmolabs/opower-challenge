@@ -32,15 +32,15 @@ function Viz({ currentYear, priorYear, vizMode }) {
                     transitionDelay: `${(i + 1) * 100}ms`
                 }} >
                     <img
-                        src={vizMode == "cars" ? CarFill : TreeFill}
+                        src={vizMode === "cars" ? CarFill : TreeFill}
                         className={classes.vizIcon}
                         key={i}
                     />
                 </Zoom>
             )}
-            {nItems == 0 &&
+            {Math.round(nItems) === 0 &&
                 <Zoom in={true} key={uuid.v4()} className={classes.delayedZoom} >
-                    <img src={vizMode == "cars" ? CarOutline : TreeOutline} className={classes.vizIcon} />
+                    <img src={vizMode === "cars" ? CarOutline : TreeOutline} className={classes.vizIcon} />
                 </Zoom>
             }
         </div >
