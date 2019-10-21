@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/opower-challenge/static/css/main.cfda8877.chunk.css",
-    "main.js": "/opower-challenge/static/js/main.e42d347e.chunk.js",
-    "main.js.map": "/opower-challenge/static/js/main.e42d347e.chunk.js.map",
+    "main.js": "/opower-challenge/static/js/main.9be1f2fa.chunk.js",
+    "main.js.map": "/opower-challenge/static/js/main.9be1f2fa.chunk.js.map",
     "runtime-main.js": "/opower-challenge/static/js/runtime-main.8688b888.js",
     "runtime-main.js.map": "/opower-challenge/static/js/runtime-main.8688b888.js.map",
-    "static/js/2.21755f3d.chunk.js": "/opower-challenge/static/js/2.21755f3d.chunk.js",
-    "static/js/2.21755f3d.chunk.js.map": "/opower-challenge/static/js/2.21755f3d.chunk.js.map",
+    "static/js/2.dd9f06c5.chunk.js": "/opower-challenge/static/js/2.dd9f06c5.chunk.js",
+    "static/js/2.dd9f06c5.chunk.js.map": "/opower-challenge/static/js/2.dd9f06c5.chunk.js.map",
     "index.html": "/opower-challenge/index.html",
-    "precache-manifest.fcc1c8b3006161603b914d2905156415.js": "/opower-challenge/precache-manifest.fcc1c8b3006161603b914d2905156415.js",
+    "precache-manifest.17b158d60caac26f978ba619ba7e2780.js": "/opower-challenge/precache-manifest.17b158d60caac26f978ba619ba7e2780.js",
     "service-worker.js": "/opower-challenge/service-worker.js",
     "static/css/main.cfda8877.chunk.css.map": "/opower-challenge/static/css/main.cfda8877.chunk.css.map",
     "static/media/car-fill.svg": "/opower-challenge/static/media/car-fill.c07f5df3.svg",
@@ -18,8 +18,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8688b888.js",
-    "static/js/2.21755f3d.chunk.js",
+    "static/js/2.dd9f06c5.chunk.js",
     "static/css/main.cfda8877.chunk.css",
-    "static/js/main.e42d347e.chunk.js"
+    "static/js/main.9be1f2fa.chunk.js"
   ]
 }
