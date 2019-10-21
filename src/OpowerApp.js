@@ -10,56 +10,47 @@ import SavingsDescription from "./SavingsDescription"
 import SavingsGraph from "./SavingsGraph"
 import useLocalStorageState from "./hooks/useLocalStorageState"
 
-/*
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-}));
-*/
-
-// {
-//     "customer": {
-//       "id": "A29071",
-//       "name": "Julia Simpson"
-//     },
-//     "energyUse": {
-//       "currentYear": 573,
-//       "priorYear": 791
-//     }
-//   }
-
 function OpowerApp() {
-    // const [myData, setMyData] = useState(data);
     const [vizMode, setVizMode] = useLocalStorageState("vizType", "cars")
     const [priorYear, setPriorYear] = useLocalStorageState("priorYear", data.energyUse.priorYear)
     const [currentYear, setCurrentYear] = useLocalStorageState("currentYear", data.energyUse.currentYear)
 
-    return (
-        <Paper style={{
+    const useStyles = makeStyles(theme => ({
+        root: {
+            flexGrow: 1,
+        },
+        bgPaper: {
             padding: 0,
             margin: 0,
             height: "100vh",
             width: "100vw",
             backgroundColor: "#fafafa"
-        }}
-            elevation={0}
-        >
+        },
+        mainGrid: {
+            marginTop: "1rem",
+            width: "100vw"
+        },
+        descriptionPaper: {
+            paddingTop: 20, paddingBottom: 20
+        },
+        vizPaper: {
+            textAlign: "center"
+        }
+    }))
+    const classes = useStyles()
+
+    return (
+        <Paper className={classes.bgPaper} elevation={0}>
             <Navbar priorYear={priorYear} currentYear={currentYear} setPriorYear={setPriorYear} setCurrentYear={setCurrentYear} />
-            <Grid container justify="center" spacing={3} style={{ marginTop: "1rem", width: "100vw" }} >
+            <Grid className={classes.mainGrid} container justify="center" spacing={3}>
                 <Grid item xs={11} md={11} lg={6}>
-                    <Paper style={{ paddingTop: 20, paddingBottom: 20 }}>
+                    <Paper className={classes.descriptionPaper}>
                         <SavingsDescription priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
                         <SavingsGraph priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
                     </Paper>
                 </Grid>
                 <Grid item xs={11} md={11} lg={5}>
-                    <Paper style={{ textAlign: "center" }}>
+                    <Paper className={classes.vizPaper}>
                         <VizToggle vizMode={vizMode} setVizMode={setVizMode} />
                         <Viz priorYear={priorYear} currentYear={currentYear} vizMode={vizMode} />
                     </Paper>

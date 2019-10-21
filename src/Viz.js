@@ -1,7 +1,4 @@
 import React, { useContext } from "react"
-import { VizContext } from "./contexts/VizContext"
-import Paper from "@material-ui/core/Paper"
-import { flexbox } from "@material-ui/system"
 import CarFill from "./img/car-fill.svg"
 import CarOutline from "./img/car-outline.svg"
 import TreeFill from "./img/tree-fill.svg"

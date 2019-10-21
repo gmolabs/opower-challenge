@@ -21,6 +21,7 @@ function SettingsMenu({ priorYear, currentYear, setPriorYear, setCurrentYear }) 
             marginRight: 25
         }
     }))
+    const classes = useStyles()
     const [anchorEl, setAnchorEl] = React.useState(null)
     const handleMenu = event => {
         setAnchorEl(event.currentTarget)
@@ -35,7 +36,6 @@ function SettingsMenu({ priorYear, currentYear, setPriorYear, setCurrentYear }) 
     const handleThisYearSliderChange = (e, value) => {
         setCurrentYear(value)
     }
-    const classes = useStyles()
 
     return (
         <>
