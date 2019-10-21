@@ -8,12 +8,10 @@ import TreeFill from "./img/tree-fill.svg"
 import TreeOutline from "./img/tree-outline.svg"
 import uuid from "uuid"
 import getNItems from "./utils/nItems"
-
 import Zoom from '@material-ui/core/Zoom';
 
 function Viz({ currentYear, priorYear, vizMode }) {
     const nItems = getNItems(currentYear, priorYear, vizMode)
-
     return (
         <div style={{ padding: 20 }}>
             {[...Array(Math.abs(Math.round(nItems)))].map((e, i) =>

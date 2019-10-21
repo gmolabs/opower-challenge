@@ -9,15 +9,7 @@ import Zoom from '@material-ui/core/Zoom';
 import getNItems from "./utils/nItems"
 function SavingsDescription({ priorYear, currentYear, vizMode }) {
 
-    // const currentYear = currentYear
-    // const priorYear = priorYear
-    // const savings = priorYear - currentYear
-    // const carFactor = 35
-    // const treeFactor = 210
-    // const nItems = Math.round((vizMode === "cars" ? (savings / carFactor) : (savings / treeFactor)) * 100) / 100
-
     const nItems = getNItems(currentYear, priorYear, vizMode)
-
     return (
         <Container>
             <div style={{ display: "flex", flexDirection: "row", }}>
