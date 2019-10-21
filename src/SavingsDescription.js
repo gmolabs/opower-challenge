@@ -4,7 +4,8 @@ import ThumbUp from "@material-ui/icons/ThumbUp"
 import Warning from "@material-ui/icons/Warning"
 import CheckCircle from "@material-ui/icons/CheckCircle"
 import Typography from "@material-ui/core/Typography"
-
+import uuid from "uuid"
+import Zoom from '@material-ui/core/Zoom';
 function SavingsDescription({ priorYear, currentYear, vizMode }) {
 
     const curYear = currentYear
@@ -18,23 +19,26 @@ function SavingsDescription({ priorYear, currentYear, vizMode }) {
     return (
         <Container>
             <div style={{ display: "flex", flexDirection: "row", }}>
-                {
-                    nItems < 0 &&
-                    <Warning style={{
-                        paddingRight: 15,
-                        paddingTop: 2
-                    }} />
-                    || nItems == 0 &&
-                    <CheckCircle style={{
-                        paddingRight: 15,
-                        paddingTop: 2
-                    }} />
-                    || nItems > 0 &&
-                    <ThumbUp style={{
-                        paddingRight: 15,
-                        paddingTop: 2
-                    }} />
-                }
+                <Zoom in={true} key={uuid.v4()}>
+
+                    {
+                        nItems < 0 &&
+                        <Warning style={{
+                            paddingRight: 15,
+                            paddingTop: 2
+                        }} />
+                        || nItems == 0 &&
+                        <CheckCircle style={{
+                            paddingRight: 15,
+                            paddingTop: 2
+                        }} />
+                        || nItems > 0 &&
+                        <ThumbUp style={{
+                            paddingRight: 15,
+                            paddingTop: 2
+                        }} />
+                    }
+                </Zoom>
                 <Typography variant="h5" gutterBottom>
                     {
                         ((nItems < 0 && vizMode === "cars") && `Compared to this month last year, you used ${Math.abs(nItems)} more ${nItems === -1 ? "car's" : "cars'"} worth of energy.`)
