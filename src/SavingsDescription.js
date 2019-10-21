@@ -6,15 +6,17 @@ import CheckCircle from "@material-ui/icons/CheckCircle"
 import Typography from "@material-ui/core/Typography"
 import uuid from "uuid"
 import Zoom from '@material-ui/core/Zoom';
+import getNItems from "./utils/nItems"
 function SavingsDescription({ priorYear, currentYear, vizMode }) {
 
-    const curYear = currentYear
-    const lastYear = priorYear
-    const savings = lastYear - curYear
-    const carFactor = 35
-    const treeFactor = 210
-    const nItems = Math.round((vizMode === "cars" ? (savings / carFactor) : (savings / treeFactor)) * 100) / 100
-    const n = Math.round(nItems)
+    // const currentYear = currentYear
+    // const priorYear = priorYear
+    // const savings = priorYear - currentYear
+    // const carFactor = 35
+    // const treeFactor = 210
+    // const nItems = Math.round((vizMode === "cars" ? (savings / carFactor) : (savings / treeFactor)) * 100) / 100
+
+    const nItems = getNItems(currentYear, priorYear, vizMode)
 
     return (
         <Container>
@@ -53,27 +55,27 @@ function SavingsDescription({ priorYear, currentYear, vizMode }) {
                 {
 
                     (nItems < 0 && vizMode == "cars") &&
-                    `You used ${curYear} kwh last month, 
-                        compared to ${lastYear} kwh in the same month last year. 
+                    `You used ${currentYear} kwh last month, 
+                        compared to ${priorYear} kwh in the same month last year. 
                         This amount is equal to the energy consumption of  
                         ${Math.abs(nItems)} average-size car${nItems == 1 ? "" : "s"} for one month.`
                     || (nItems < 0 && vizMode == "trees") &&
-                    `You used ${curYear} kwh last month, 
-                        compared to ${lastYear} kwh in the same month last year. 
+                    `You used ${currentYear} kwh last month, 
+                        compared to ${priorYear} kwh in the same month last year. 
                         It would take
                         ${Math.abs(nItems)} tree${nItems == 1 ? "" : "s"} a month to sequester that amount of carbon.`
                     || nItems == 0 &&
-                    `You used ${curYear} kwh last month, 
+                    `You used ${currentYear} kwh last month, 
                         the same amount as the same month last year.`
                     || (nItems > 0 && vizMode == "cars") &&
-                    `Great Job! You used ${curYear} kwh last month, 
-                        compared to ${lastYear} kwh in the same month last year.
+                    `Great Job! You used ${currentYear} kwh last month, 
+                        compared to ${priorYear} kwh in the same month last year.
                         The resulting saving is enough to offset the 
                         energy consumption of ${nItems} average-size car${nItems == 1 ? "" : "s"}
                         for one month.`
                     || (nItems > 0 && vizMode == "trees") &&
-                    `Great Job! You used ${curYear} kwh last month, 
-                        compared to ${lastYear} kwh in the same month last year.
+                    `Great Job! You used ${currentYear} kwh last month, 
+                        compared to ${priorYear} kwh in the same month last year.
                         The resulting saving is equivalent to the 
                         carbon sequestered by ${nItems} tree${nItems == 1 ? "" : "s"}
                         in one month.`
