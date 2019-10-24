@@ -1,5 +1,7 @@
 # Opower coding Challenge
 
+npm start, http://localhost:3000/
+
 https://gmolabs.github.io/opower-challenge/
 
 Implementation of wireframe displaying power usage information to a customer. Designed to be responsive across different viewports and to delight the user with dynamic infoviz.
